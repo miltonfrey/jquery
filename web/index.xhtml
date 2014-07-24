@@ -17,7 +17,8 @@
         
         
     </h:head>
-    <h:body>
+    var v1='#{bean1.i1}';
+    <h:body onload="intFromServer('#{bean1.i1}')">   <!--da igual poner ";" o no al final--> 
   
 
 
@@ -25,10 +26,22 @@
 <p>This is a paragraph.</p>
 <p>This is another paragraph.</p>
 
-<h:form>
+<h:form id="f1">
     
-    <h:commandButton id="b1" value="pulsa"/>
+    int
     
+    <h:outputText value="#{bean1.i1}"/>
+    <br/>
+    Integer (el null no aparece)
+    <h:outputText value="#{bean1.i2}"/>
+    <br/>   
+    
+    <h:messages id="m1"/>
+    
+    <!--<h:commandButton id="b1" value="pulsa" onclick="alerta()"/>-->
+    <h:commandButton id="b2" value="pulsa" onclick="return (4===numero())" action="#{bean1.m1}">  <!--siempre lo hace. Hay que poner el return para que lo haga o no-->
+        
+    </h:commandButton>
 </h:form>
 
 
