@@ -8,9 +8,11 @@ $(document).ready(function(){
     $(this).hide();
   });
   
-  $("#f1\\:b1").click(function(){
+  $("#f1\\:b1").click(function(){ // form y button aunque haya un datagrid en medio
       alerta();
   });
+  
+  
   
 });
 
@@ -36,7 +38,7 @@ function numero(){
 
 function intFromServer(variable){
     
-    alert(variable);
+    //alert(variable);
     
     
 }

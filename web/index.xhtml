@@ -7,7 +7,7 @@
       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Facelet Title</title>
-        
+        <h:outputStylesheet library="css" name="colores.css"/>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         
         <h:outputScript library="js" name="js1.js"/>
@@ -28,6 +28,8 @@
 
 <h:form id="f1">
     
+    <p:growl/>
+    
     int
     
     <h:outputText value="#{bean1.i1}"/>
@@ -43,6 +45,24 @@
         
     </h:commandButton>
 </h:form>
+
+
+<h:form id="form1">
+    <p:dataTable id="tabla" widgetVar="tablaBtn" value="#{bean1.lista}" var="item" rowStyleClass="#{item eq bean1.cadena ? 'green' : null}"
+                 selection="#{bean1.selectedString}"
+                 rowKey="#{item}">
+    <p:column headerText="columna1">
+        <h:outputText value="#{item}"/>
+    </p:column>
+    
+        <p:column selectionMode="multiple" style="text-align: center"/> 
+        
+        
+    </p:dataTable>
+    
+    <p:commandButton value="pulsar" action="#{bean1.procesa}" update=":f1" process="form1"/>
+</h:form>
+
 
 
 
